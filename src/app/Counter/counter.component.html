@@ -1,5 +1,5 @@
 <h1>Hello, {{counter}}</h1>
 <div>
-    <app-button-add [counter]="counter"></app-button-add>
-    <app-button-minus [counter]="counter"></app-button-minus>
+    <app-button-add [counter]="counter" (onAdd)="handleCount($event)"></app-button-add>
+    <app-button-minus [counter]="counter" (onMinus)="handleCount($event)"></app-button-minus>
 </div>

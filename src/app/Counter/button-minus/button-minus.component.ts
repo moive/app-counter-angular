@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button-minus',
@@ -9,9 +9,12 @@ export class ButtonMinusComponent {
   @Input()
   counter: number = 0;
 
+  @Output()
+  onMinus: EventEmitter<number> = new EventEmitter();
+
   minus() {
-    console.log(this.counter)
     this.counter - 2 > 0 && (this.counter -= 2);
+    this.onMinus.emit(this.counter);
   }
 
 }

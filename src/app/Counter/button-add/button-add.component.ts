@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button-add',
@@ -9,9 +9,12 @@ export class ButtonAddComponent {
   @Input()
   counter: number = 0;
 
+  @Output()
+  onAdd: EventEmitter<number> = new EventEmitter();
+
   add() {
-    console.log(this.counter)
     this.counter += 3;
+    this.onAdd.emit(this.counter)
   }
 
 }
