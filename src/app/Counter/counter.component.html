@@ -1,6 +1,5 @@
 <h1>Hello, {{counter}}</h1>
 <div>
-    <app-button-counter></app-button-counter>
-    <button class="btn btn-primary" (click)="add()">+1</button>
-    <button class="btn btn-danger ms-3" (click)="minus()">-1</button>
+    <app-button-add [counter]="counter"></app-button-add>
+    <app-button-minus [counter]="counter"></app-button-minus>
 </div>

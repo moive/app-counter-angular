@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ButtonCounterComponent } from './button-counter.component';
+import { ButtonMinusComponent } from './button-minus.component';
 
-describe('ButtonCounterComponent', () => {
-  let component: ButtonCounterComponent;
-  let fixture: ComponentFixture<ButtonCounterComponent>;
+describe('ButtonMinusComponent', () => {
+  let component: ButtonMinusComponent;
+  let fixture: ComponentFixture<ButtonMinusComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonCounterComponent ]
+      declarations: [ ButtonMinusComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ButtonCounterComponent);
+    fixture = TestBed.createComponent(ButtonMinusComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
