@@ -22,4 +22,17 @@ describe('ButtonCounterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it("Must emit the value of 3", () => {
+    // console.log(fixture.nativeElement)
+    // console.log(component.counter)
+    let newCounter: number = 0;
+    component.onAdd.subscribe((counter) => {
+      newCounter = counter;
+    });
+
+    component.add();
+
+    expect(newCounter).toBe(3);
+  });
 });
