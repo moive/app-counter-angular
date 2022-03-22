@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { ButtonAddComponent } from "./button-add/button-add.component";
+import { ButtonMinusComponent } from "./button-minus/button-minus.component";
 import { CounterComponent } from "./counter.component"
 
-describe("CounterComponent Unit testing", () => {
+describe("CounterComponent Unit", () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [CounterComponent]
@@ -36,7 +37,7 @@ describe("CounterComponent Test Integration", () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [CounterComponent, ButtonAddComponent]
+            declarations: [CounterComponent, ButtonAddComponent, ButtonMinusComponent]
         }).compileComponents();
     });
 
@@ -56,5 +57,16 @@ describe("CounterComponent Test Integration", () => {
         fixture.detectChanges();
 
         expect(counterValue.textContent).toEqual("Hello, 13");
+    });
+
+    it("event click button minus", () => {
+        const compiled: HTMLElement = fixture.nativeElement;
+        const counterValue = compiled.querySelector("h1");
+        const btnMinus: HTMLElement = fixture.debugElement.nativeElement.querySelector("#minus");
+
+        btnMinus.click();
+        fixture.detectChanges();
+
+        expect(counterValue?.textContent).toEqual("Hello, 8");
     });
 });

@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ButtonMinusComponent {
   @Input()
-  counter: number = 0;
+  counter: number = 3;
 
   @Output()
   onMinus: EventEmitter<number> = new EventEmitter();
