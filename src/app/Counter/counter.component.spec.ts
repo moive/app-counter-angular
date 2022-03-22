@@ -1,7 +1,8 @@
-import { TestBed } from "@angular/core/testing";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ButtonAddComponent } from "./button-add/button-add.component";
 import { CounterComponent } from "./counter.component"
 
-describe("CounterComponent", () => {
+describe("CounterComponent Unit testing", () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [CounterComponent]
@@ -28,3 +29,32 @@ describe("CounterComponent", () => {
         expect(count.counter).toBe(10)
     });
 })
+
+describe("CounterComponent Test Integration", () => {
+    let component: CounterComponent;
+    let fixture: ComponentFixture<CounterComponent>;
+
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [CounterComponent, ButtonAddComponent]
+        }).compileComponents();
+    });
+
+    beforeEach(() => {
+        fixture = TestBed.createComponent(CounterComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it("event click button add", () => {
+        const compiled: HTMLElement = fixture.nativeElement;
+        const counterValue = compiled.querySelector("h1")!;
+        const btnAdd: HTMLElement = fixture.debugElement.nativeElement.querySelector("#add");
+        // console.log(compiled)
+
+        btnAdd.click();
+        fixture.detectChanges();
+
+        expect(counterValue.textContent).toEqual("Hello, 13");
+    });
+});
