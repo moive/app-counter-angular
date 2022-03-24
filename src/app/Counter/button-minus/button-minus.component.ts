@@ -13,7 +13,7 @@ export class ButtonMinusComponent {
   onMinus: EventEmitter<number> = new EventEmitter();
 
   minus() {
-    this.counter - 2 > 0 && (this.counter -= 2);
+    this.counter - 2 > -1 && (this.counter -= 2);
     this.onMinus.emit(this.counter);
   }
 
